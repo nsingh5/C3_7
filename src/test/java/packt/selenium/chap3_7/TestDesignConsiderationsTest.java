@@ -36,6 +36,7 @@ public class TestDesignConsiderationsTest {
         driver.quit();
     }
 
+    @Test
     public void testHeading_PageObjectDesignPattern() throws Exception {
         seleniumHQ = new SeleniumHQ(driver);
         documentationPage = seleniumHQ.clickDocumentation();
