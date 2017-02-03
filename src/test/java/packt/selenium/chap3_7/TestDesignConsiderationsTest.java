@@ -44,7 +44,7 @@ public class TestDesignConsiderationsTest {
 
         String actualHeading = testDesignConsiderationsPage.getTextHeadingPageObjectDesignPattern();
         System.out.println(actualHeading);
-        String expectedHeading = "qqqqqqqqqPage Object Design Pattern";
+        String expectedHeading = "Page Object Design Pattern";
         assertEquals(expectedHeading, actualHeading);
     }
 }
