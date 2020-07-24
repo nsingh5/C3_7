@@ -1,27 +1,27 @@
 pipeline {
     agent any
-    
-    tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
+    tools { 
+        maven 'Maven 3.6.3' 
+        jdk 'jdk8' 
     }
     stages {
+       
+        
         stage ('Initialize') {
-            steps {
-               echo "initailting"
-               git "https://github.com/nsingh5/maven.git/"
+            steps { 
+                git "https://github.com/nsingh5/C3_7.git/"
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                 
             }
         }
-
         stage ('Build') {
             steps {
-               bat "dir"
-              bat "mvn install -DskipTests"
-               //fortifyClean addJVMOptions: '', buildID: 'test', logFile: '', maxHeap: ''
+                bat 'mvn -DskipTests install' 
             }
             post {
                 success {
-                   echo "passed"
+                    junit 'target/surefire-reports/**/*.xml' 
                 }
             }
         }
